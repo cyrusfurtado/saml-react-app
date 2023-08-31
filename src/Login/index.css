@@ -1,0 +1,15 @@
+.form-wrapper {
+    flex: auto;
+}
+
+.form-item {
+    padding: 2rem 0 0 0;
+}
+
+.form-item label {
+    padding-right: 1rem;
+}
+
+.form-item button {
+    margin-right: 1rem;
+}
