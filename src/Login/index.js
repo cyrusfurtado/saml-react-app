@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './index.css';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsAuth }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
+  const idpAssertionUrl = `https://localhost:10443/sso/request`;
 
   const handleUserNameChange = (e) => {
     setUsername(e.target.value);
@@ -21,7 +24,10 @@ const LoginForm = () => {
 
   const loginWithSSO = (e) => {
     e.preventDefault();
-    console.log('loginWithSSO');
+    console.log('loginWithSSO', idpAssertionUrl);
+    setIsAuth(true)
+    // history.push('/dashboard')
+    window.location.href = idpAssertionUrl;
   }
 
   return (
