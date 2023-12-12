@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import logo from './logo.svg';
 
-const Home = () => {
-  const idpLogoutUrl = `https://localhost:10443/slo/request`;
+const Home = ({user, session}) => {
+  const idpLogoutUrl = `https://localhost:10443/samlslo`;
+
 
   const logout = (e) => {
     e.preventDefault();
@@ -24,6 +26,12 @@ const Home = () => {
     >
       Learn React
     </a> */}
+    {/* <div className='form-item'>
+      <h6>User: {user}</h6>
+    </div> */}
+    <div className='form-item'>
+      <h6>Session: {session}</h6>
+    </div>
     <div className='form-item'>
       <button onClick={logout}>Logout</button>
     </div>
